@@ -103,10 +103,27 @@ header .tagline {
     /* TODO give these headers a color of #221c12 */
     color: #221c12;
 }
+
+/* Testing menu group placement w blue border */
+/*.menu-group {
+    border: 1px solid blue;
+}*/
+
+
 /* TODO center the text of the h2 and menu-section */
- .menu-section h3 a {
+ .menu-section h3 {
     text-align: center;
-    /* TODO make menu section links a semi-transparent color rgba(34, 28, 18, .75). give them a 3px bottom border and give it a bit of space */
+}
+    /* TODO make menu section links a semi-transparent color rgba(34, 28, 18, .75).
+    give them a 3px bottom border and give it a bit of space */
+
+.menu-section a {
+    color rgba:(34, 28, 18, .75);
+    border-bottom: 3px; 
+    margin: 3px;
+    
+}
+
     /* TODO give the menu section links a CSS transition so that when you hover them, the color fades in slowly */
 }
 /* TODO on the menu section links, when hovered, make them the same color but 100% opacity instead of 75% (.75) and make the bottom border the same color. */
