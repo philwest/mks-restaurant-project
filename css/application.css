@@ -99,6 +99,7 @@ header .tagline {
     font-size: 1.85em;
     text-align: center;
 }
+
 .menu h2, .menu h3, .menu h4 {
     /* TODO give these headers a color of #221c12 */
     color: #221c12;
@@ -121,7 +122,7 @@ header .tagline {
     color rgba:(34, 28, 18, .75);
     border-bottom: 3px; 
     margin: 3px;
-    
+
 }
 
     /* TODO give the menu section links a CSS transition so that when you hover them, the color fades in slowly */
@@ -130,14 +131,34 @@ header .tagline {
 
 /* TODO on the ACTIVE menu section links, make them look the same as hovered ones. How do you know if they are active? */
  .menu-section-content {
-    /* TODO give this some space below the menu links */
+    margin-bottom: 2em;
+    /* DID give this some space below the menu links */
 }
 .menu-item {
-    /* TODO give each menu item some bottom margin */
+    margin-bottom: 1.5em;
+    line-height: 1.25em;
 }
-/* TODO style the menu-item-name to be bold */
+    /* DID give each menu item some bottom margin */
 
-/* TODO style the menu-item-description to be italic and be in one line with the price. You don't need to use Foundation classes to do this, but if you want to try and see, go for it! */
+.menu-item-name {
+    font-weight: bold;
+}
+/* DID style the menu-item-name to be bold */
+
+.menu-item-description {
+    font-style: italic;
+    display: inline;
+    margin: 0;
+}
+
+/* ???TODO style the menu-item-description to be italic and be in one line with the price. You don't need to use Foundation classes to do this, but if you want to try and see, go for it! */
+
+.menu-item-price { 
+    font-weight: bold;
+    display: inline;
+    opacity: 0.5;
+    padding-left: 2em;    
+}
 
 /* TODO style the menu-item-price to be bold, 50% opacity, in line with the description but have some space to the left of it. */
 
@@ -147,7 +168,21 @@ header .tagline {
 
 /* ---------------------------------------------- */
  .contact {
-    /* TODO add the dark brown background color, and the background image symbols-bottom. Change the background-position so that the bottom of it shows (where the symbols start to fade out). */
-    /* TODO add some top and bottom padding so that the content doesn't overlap the background image. Note how the padding changes the location of the background image. */
+    background: #221c12 url("../images/symbols-bottom.png") 0 -50% no-repeat;
+    text-align: center;
+    padding-top: 24em;
+    padding-bottom: 10em;
 }
+    /* ???DID add the dark brown background color, and the background image symbols-bottom. Change the background-position so that the bottom of it shows (where the symbols start to fade out). */
+    /* TODO add some top and bottom padding so that the content doesn't overlap the background image. Note how the padding changes the location of the background image. */
+
+.social-links {
+    opacity: 50%;
+    hover: 100%;
+}
+
+.social-links img {
+    padding: 0.5em;
+}
+
 /* TODO make the .social-links links be displayed in a row with some space between them. make them 50% opacity, and fade to 100% opacity when you hover over them. */
