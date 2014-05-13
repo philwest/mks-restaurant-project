@@ -177,8 +177,11 @@ header .tagline {
     /* TODO add some top and bottom padding so that the content doesn't overlap the background image. Note how the padding changes the location of the background image. */
 
 .social-links {
-    opacity: 50%;
-    hover: 100%;
+    opacity: 0.5;
+}
+
+.social-links a:hover {
+    opacity: 1;
 }
 
 .social-links img {
