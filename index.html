@@ -103,18 +103,31 @@
     <section class="menu">
         <div class="row">
             <h2>Menus</h2>
+            <br>
         </div>
 
 
         <!-- TODO add a foundation row -->
         <div class="row">
             <!-- DID write the following HTML for each of the menus: breakfast, lunch, dinner, dessert, cocktails, and wine. Give them a small-2 columns so they line up appropriately next to each other. One of them is active in the mockup. Which one? What kind of classname would you add to show that it is active? -->
-            <div class="breakfast columns small-2"></div>
-            <div class="lunch columns small-2"></div>
-            <div class="dinner columns small-2"></div>
-            <div class="dessert columns small-2"></div>
-            <div class="cocktails columns small-2"></div>
-            <div class="wine columns small-2"></div>
+            <div id="breakfast" class="menu-action breakfast columns small-2">
+                <h4>Breakfast</h4>
+            </div>
+            <div id="lunch" class="menu-action lunch columns small-2">
+                <h4>Lunch</h4>
+            </div>
+            <div id="dinner" class="menu-action dinner columns small-2">
+                <h4>Dinner</h4>
+            </div>
+            <div id="dessert" class="menu-action dessert columns small-2">
+                <h4>Dessert</h4>
+            </div>
+            <div id="cocktails" class="menu-action cocktails columns small-2">
+                <h4>Cocktails</h4>
+            </div>
+            <div id="wine" class="menu-action wine columns small-2">
+                <h4>Wine</h4>
+            </div>
             <div class="menu-section">
                 <h3>
                     <!-- TODO later we will write JavaScript to toggle the menu sections, using this link -->
@@ -128,127 +141,8 @@
 
         <!-- TODO add a foundation row -->
         <div class="row">
-            <div class="menu-section-content menu-dinner is-active">
+            <div class="menu-section-content menu-action-dinner is-active">
 
-                <!-- DID we'll add the dinner menu content here. Write two columns with the class .menu-group and the foundation column classes. -->
-
-                <!-- DID Inside each .menu-group, there should be an h4 with the title. -->
-
-                <!-- DID for each item on the menu, write a div.menu-item. -->
-
-                <!-- DID inside each div.menu-item, there should be a div.menu-item-name, a p.menu-item-description, and a div.menu-item-price. -->
-
-                <!-- DID we are going to do ONLY the "Raw Bar" and "Entrees" section of the dinner menu for now. You can find that content in /menu-content/menu-dinner.md We'll add the rest of the menus with JSON later. -->
-
-
-                <div class="menu-group columns small-12">
-                    <h4>Raw Bar</h4>
-                    <div class="menu-item">
-                        <div class="menu-item-name">malpeque oyster</div>
-                        <p class="menu-item-description">prince edward island, canada</p>
-                        <div class="menu-item-price">3</div>
-                    </div>
-                    <br>
-                    <div class="menu-item">
-                        <div class="menu-item-name">bluepoint oyster</div>
-                        <p class="menu-item-description">long island sound</p>
-                        <div class="menu-item-price">3</div>
-                    </div>
-                    <br>
-                    <div class="menu-item">
-                        <div class="menu-item-name">seafood coctel</div>
-                        <p class="menu-item-description">shrimp, avocado, tomato, cucumber, onion</p>
-                        <div class="menu-item-price">11</div>
-                    </div>
-                    <br>
-                    <div class="menu-item">
-                        <div class="menu-item-name">raw bass</div>
-                        <p class="menu-item-description">avocado, lime, guajillo</p>
-                        <div class="menu-item-price">11</div>
-                    </div>
-                    <br>
-                    <div class="menu-item">
-                        <div class="menu-item-name">vuelve a la vida</div>
-                        <p class="menu-item-description">squid, shrimp, salmon, spicy tomato, celery</p>
-                        <div class="menu-item-price">9</div>
-                    </div>
-                    <br>
-                    <div class="menu-item">
-                        <div class="menu-item-name">ceviche traditional</div>
-                        <p class="menu-item-description">avocado, tomato, jalapeño</p>
-                        <div class="menu-item-price">9</div>
-                    </div>
-                    <br>
-                    <div class="menu-item">
-                        <div class="menu-item-name">hamachi</div>
-                        <p class="menu-item-description">“horchata”, orange</p>
-                        <div class="menu-item-price">11</div>
-                    </div>
-                    <br>
-                    <div class="menu-item">
-                        <div class="menu-item-name">vegan ceviche chayote</div>
-                        <p class="menu-item-description">cauliflower, beet, orange</p>
-                        <div class="menu-item-price">8</div>
-                    </div>
-                    <br>
-                </div>
-            </div>
-
-
-            <div class="menu-group columns small-12"></div>
-            <h4>Entrees</h4>
-            <div class="menu-item">
-                <div class="menu-item-name">carne asada</div>
-                <p class="menu-item-description">flank steak, grilled onions, “pico de gallo”</p>
-                <div class="menu-item-price">19</div>
-            </div>
-            <br>
-            <div class="menu-item">
-                <div class="menu-item-name">grilled hen</div>
-                <p class="menu-item-description">cauliflower, pickle red onions, salsa verde</p>
-                <div class="menu-item-price">16</div>
-            </div>
-            <br>
-            <div class="menu-item">
-                <div class="menu-item-name">lamb en mole</div>
-                <p class="menu-item-description">poblano, chayote, tomatoes, raisins</p>
-                <div class="menu-item-price">22</div>
-            </div>
-            <br>
-            <div class="menu-item">
-                <div class="menu-item-name">blade steak al pastor</div>
-                <p class="menu-item-description">charred tomato, radish, onion</p>
-                <div class="menu-item-price">22</div>
-            </div>
-            <br>
-            <div class="menu-item">
-                <div class="menu-item-name">striped bass</div>
-                <p class="menu-item-description">hominy, mushrooms, chard, hoja santa, guajillo</p>
-                <div class="menu-item-price">23</div>
-            </div>
-            <br>
-            <div class="menu-item">
-                <div class="menu-item-name">salmon veracruz</div>
-                <p class="menu-item-description">tomato, onion, peppers, capers, olives</p>
-                <div class="menu-item-price">19</div>
-            </div>
-            <br>
-            <div class="menu-item">
-                <div class="menu-item-name">herb crusted mahi mahi</div>
-                <p class="menu-item-description">salsa negra, pineapple, turnips, scallion</p>
-                <div class="menu-item-price">22</div>
-            </div>
-            <br>
-            <div class="menu-item">
-                <div class="menu-item-name">grilled shrimp al mojo de ajo</div>
-                <p class="menu-item-description">garlic, lime, tomato, tequila, greens, coronas</p>
-                <div class="menu-item-price">21</div>
-            </div>
-            <br>
-            <div class="menu-item">
-                <div class="menu-item-name">oak grilled filet</div>
-                <p class="menu-item-description">“rajas”, pasilla red wine reduction</p>
-                <div class="menu-item-price">36</div>
             </div>
 
         </div>
@@ -321,10 +215,10 @@
     <!-- DID link to the slides.min.js file -->
     <script src="js/work.js"></script>
 
-    
+
     <!-- DID write the .slidesjs() code to make the slideshow work -->
 
 
-            </body>
+</body>
 
-</html >
+</html>

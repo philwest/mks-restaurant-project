@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     /*
      * Image Slider
-    */
+     */
     $('#slides').slidesjs({
         navigation: {
             effect: "fade"
@@ -30,125 +30,176 @@ $(document).ready(function() {
      *          1. Iterate through the array of sections and create the HTML string per section
      *          2. Within each section, iterate through each piece of menu info and create the HTML string.
      *      4. Take the finalized HTML string and populate the menu section of the site.
-    */
+     */
+
+    /*
+     * @name populateMenu
+     * @description Populate individual items of the menu
+     */
+
+
+
+
+
+
+
+
+
+    var populatePieces = function(json) {
+
+        var menuItemElement = "";
+        // // @TODO Create empty string variable
+
+        for (var x = 0; x < json.length; x++) {
+            if (json[x].ingredients) {
+                menuItemElement = menuItemElement + '<div class="menu-item"><div class="menu-item-name">' + json[x].dish + '</div>';
+                menuItemElement = menuItemElement + '<p class="menu-item-description">' + json[x].ingredients + '</p>';
+                menuItemElement = menuItemElement + '<div class="menu-item-price">' + json[x].price + '</div></div>';
+            } else {
+                menuItemElement = menuItemElement + '<div class="menu-item"><div class="menu-item-name" style="display:inline">' + json[x].dish + '</div>';
+                menuItemElement = menuItemElement + '<div class="menu-item-price">' + json[x].price + '</div></div>';
+            }
+
+        }
+
+        return menuItemElement;
+
+
+        // @TODO Iterate through array that was passed through the parameter 
 
         /*
-         * @name populateMenu
-         * @description Populate individual items of the menu
-        */
-        
-        var populatePieces = function(json) {
-
-            // @TODO Create empty string variable
-
-            // @TODO Iterate through array that was passed through the parameter 
-                
-                /*
-                 * @TODO Create HTML string based on the original HTML. Final sting should look like this:
-                 *       <div class="menu-item">
-                 *            <div class="menu-item-name">malpeque oyster</div>
-                 *            <p class="menu-item-description">prince edward island, canada</p>
-                 *            <div class="menu-item-price">3</div>
-                 *       </div>
-                */
-
-                /*
-                 * @TODO Extension: Notice how on wine, there are undefined ingredients
-                 *            Goal: Check if the ingredient section exists. 
-                 *                   If it doesn't, remove the ingredients section and 
-                 *                   add a new CSS class to the menu item name to make the price 
-                 *                   show up next to it.
-                */
-
-
-            // @TODO Return the created string
-
-        };
+         * @TODO Create HTML string based on the original HTML. Final sting should look like this:
+         *       <div class="menu-item">
+         *            <div class="menu-item-name">malpeque oyster</div>
+         *            <p class="menu-item-description">prince edward island, canada</p>
+         *            <div class="menu-item-price">3</div>
+         *       </div>
+         */
 
         /*
-         * @name populateSections
-         * @description Populate sections of the menu and add that to the HTML.
-        */
+         * @TODO Extension: Notice how on wine, there are undefined ingredients
+         *            Goal: Check if the ingredient section exists.
+         *                   If it doesn't, remove the ingredients section and
+         *                   add a new CSS class to the menu item name to make the price
+         *                   show up next to it.
+         */
 
-        var populateSections = function(json) {
 
-            // @TODO Create empty string variable
+        // @TODO Return the created string
 
-            /*
-             * @TODO Create HTML string based on the original HTML. 
-             *       YOU WILL NEED TO PASS populatePieces() into this loop in order to get the string for the individual pieces.
-             *  
-             *  Final sting should look like this:
-             *  <div id="menu-section-content" class="menu-section-content menu-dinner is-active">
-             *        <div class="menu-group columns small-12 medium-4">
-             *            <h4>Raw Bar</h4>
-             *               ...
-             *        </div>
-             *         ...
-             *  </div>
-            */
+    };
 
-            // @TODO Iterate through array that was passed through the parameter and create the HTML string
+    /*
+     * @name populateSections
+     * @description Populate sections of the menu and add that to the HTML.
+     */
 
-            // @TODO Use a jQuery function to insert the HTML string into the menu section content area
+    var populateSections = function(json) {
 
-        };
+        // @TODO Create empty string variable
+
+        var menuSectionElement = "";
+
+
 
         /*
-         * @name getMenu
-         * @description Get menu items from the API.
-         * @param course - this parameter is used to get the specific course section, ie 'breakfast', 'lunch', 'wine'
-        */
+         * @TODO Create HTML string based on the original HTML.
+         *       YOU WILL NEED TO PASS populatePieces() into this loop in order to get the string for the individual pieces.
+         *
+         *  Final sting should look like this:
+         *  <div id="menu-section-content" class="menu-section-content menu-dinner is-active">
+         *        <div class="menu-group columns small-12 medium-4">
+         *            <h4>Raw Bar</h4>
+         *               ...
+         *        </div>
+         *         ...
+         *  </div>
+         */
 
-        var getMenu = function(course) {
+        // Creating the menu section group
 
-            /*
-             * @TODO Extension: Replace $.getJSON() with $.ajax(). If done properly, you will have made your first AJAX command!
-            *                   Google 'jQuery json' to learn more about how to use it.
-            */
+        for (var x = 0; x < json.length; x++) {
+            if (json[x].section) {
+                menuSectionElement = menuSectionElement + '<div class="menu-group columns small-12 medium-4"><h4>' + json[x].section + '</h4>';
+                menuSectionElement = menuSectionElement + populatePieces(json[x].content);
+                menuSectionElement = menuSectionElement + '</div>';
+            }
 
-            // Get the JSON from the API.
-            $.getJSON('http://mksrestaurantapi.herokuapp.com/menu-' + course +'.json' , function(json) {
-                
-                // Once that happens, run populateSections() and pass in the JSON.
-                populateSections(json);
+            $(".menu-section-content").html(menuSectionElement);
 
-            });
+        }
 
-        };
+        // @TODO Iterate through array that was passed through the parameter and create the HTML string
+
+        // @TODO Use a jQuery function to insert the HTML string into the menu section content area
+
+    };
+
+    /*
+     * @name getMenu
+     * @description Get menu items from the API.
+     * @param course - this parameter is used to get the specific course section, ie 'breakfast', 'lunch', 'wine'
+     */
+
+    var getMenu = function(course) {
+
+        /*
+         * @TODO Extension: Replace $.getJSON() with $.ajax(). If done properly, you will have made your first AJAX command!
+         *                   Google 'jQuery json' to learn more about how to use it.
+         */
+
+        // Get the JSON from the API.
 
         /*
          * @name Event Handler
          * @description This event handler will pick up event information from the menu actions. Use this to pass the course to getMenu.
-        */
+         */
+        $.getJSON('http://mksrestaurantapi.herokuapp.com/menu-' + course + '.json', function(json) {
+            populateSections(json)
 
-        // @TODO Create an event handler to get event information for menu actions
+        });
+    };
 
-            // @TODO Get the id attribute from what was clicked.
+    // $('')
 
-            // @TODO Console.log id. Notice how the end of the ID has 'breakfast','lunch', etc. 
+    // @TODO Create an event handler to get event information for menu actions
 
-            // This action will save the ending of the id to back into id, so now id only equals 'breakfast','lunch',etc
-            id = id.substring(12,id.length);
+    // @TODO Get the id attribute from what was clicked.
 
-            // @TODO Pass the id into getMenu() to begin the process of getting the JSON and populating the data
+    // @TODO Console.log id. Notice how the end of the ID has 'breakfast','lunch', etc. 
 
-            // @TODO Remove the class 'is-active' from all menu actions
+    // This action will save the ending of the id to back into id, so now id only equals 'breakfast','lunch',etc
+    // id = id.substring(12,id.length);
 
-            // @TODO Add 'is-active' to this specific action that was clicked. 'is-active provides the visual cue for what's active via CSS
+    // @TODO Pass the id into getMenu() to begin the process of getting the JSON and populating the data
+
+    // @TODO Remove the class 'is-active' from all menu actions
+
+    // @TODO Add 'is-active' to this specific action that was clicked. 'is-active provides the visual cue for what's active via CSS
+
+    // first step -- eventhandler for click
+    $(".menu-action").on('click', function() {
+        var getID = $(this).attr('id');
+        // then send getID to menu  
+        console.log(getID);
+        getMenu(getID);
+        //then remove is-active class, then add back in
+        $(".menu-action").removeClass('is-active');
+        $(this).addClass('is-active');
+
+    });
 
 
     /*
      * @name init
      * @description This function will run when site loads to get dinner information first.
-    */
+     */
     var init = function() {
         getMenu('dinner');
         $(".menu-action").removeClass('is-active');
-        $("#menu-action-dinner").addClass('is-active');
+        $("#dinner").addClass('is-active');
     };
 
     // Run init() to make whatever happens in init run.
     init();
-
 });

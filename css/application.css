@@ -105,6 +105,21 @@ header .tagline {
     color: #221c12;
 }
 
+.menu-button {
+    color: #221c12;
+    background-color: #fffdf0;
+    width: 50px;
+}
+
+.menu-action h4 {
+    text-align: center;
+}
+
+.menu-action.is-active h4 {
+    border-bottom: 3px solid #221c12;
+
+}
+
 /* Testing menu group placement w blue border */
 /*.menu-group {
     border: 1px solid blue;
@@ -157,7 +172,7 @@ header .tagline {
     font-weight: bold;
     display: inline;
     opacity: 0.5;
-    padding-left: 2em;    
+    padding-left: 1em;    
 }
 
 /* TODO style the menu-item-price to be bold, 50% opacity, in line with the description but have some space to the left of it. */
